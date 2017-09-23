@@ -19,9 +19,9 @@ import java.util.ArrayList;
  * @author Eric Level
  * 
  */
-public class TestCraps
+public class CrapsSimulation
 {
-	public static final int NUM_TO_PLAY = 1000000;
+	
 
 	/**
 	 * CrapsGame represents a single game of craps, which contains a single Dice
@@ -34,13 +34,13 @@ public class TestCraps
 	 * Field <code>numWins</code> tracks the total number of wins out of
 	 * <code>numPlays</code> total plays.
 	 */
-	private int numWins;
+	private int numberOfWinsSoFar;
 
 	/**
 	 * Field <code>numPlays</code> counts the total number of individual games
 	 * to play.
 	 */
-	private int numPlays;
+	private int numberOfPlays;
 
 	/**
 	 * int array field <code>winSteps</code> tracks number of wins w after
@@ -60,11 +60,11 @@ public class TestCraps
 	/**
 	 * Constructor TestCraps() creates a new CrapsGame for subsequent play.
 	 */
-	public TestCraps()
+	public CrapsSimulation()
 	{
 		// game = new CrapsGame();
 
-		game = new CrapsGame(new Die(), new Die()); // two "fair" Die objects
+		game = new CrapsGame(new Die(), new CrookedDie1()); // two "fair" Die objects
 
 		// we'll use the above to substitute Die subclass objects,
 		// thus affecting the outcome
@@ -83,13 +83,13 @@ public class TestCraps
 
 	public void play(int n)
 	{
-		numPlays = n;
-		numWins = 0;
-		for (int i = 0; i < numPlays; i++)
+		numberOfPlays = n;
+		numberOfWinsSoFar = 0;
+		for (int i = 0; i < numberOfPlays; i++)
 		{
 			if (game.playOneGame(winForNumberOfStepsOf, lossSteps))
 			{
-				numWins++;
+				numberOfWinsSoFar++;
 			}
 		}
 	}
@@ -112,9 +112,9 @@ public class TestCraps
 					+ lossSteps[numSteps] + ")");
 		}
 		
-		StdOut.println("\nPlayed " + numPlays + " games total.");
+		StdOut.println("\nPlayed " + numberOfPlays + " games total.");
 		
-		StdOut.println("Won " + numWins + "/" + numPlays + "==" + 100.0 * (0.0 + numWins) / numPlays + "%");
+		StdOut.println("Won " + numberOfWinsSoFar + "/" + numberOfPlays + "==" + 100.0 * (0.0 + numberOfWinsSoFar) / numberOfPlays + "%");
 
 	}
 
@@ -127,10 +127,13 @@ public class TestCraps
 	 * We turn off console output by CrapsGame.showOutput = false, so that the
 	 * simulation runs more quickly, then turn it back on to report the results
 	 */
-
+	
+	public static final int NUM_TO_PLAY = 1000000;
+	
 	public static void main(String[] args)
 	{
-		TestCraps test = new TestCraps();
+		// Simulate a game of Craps
+		CrapsSimulation test = new CrapsSimulation();
 
 		StdOut.println("Starting simulation of " + NUM_TO_PLAY + " games...");
 

@@ -68,7 +68,7 @@ public class CrapsGame
 				value = dice.getLastRoll();
 				println("Next roll is: " + value);
 			}
-			while (value != 7 && value != point);
+			while (gameIsNotOver(value));
 	
 			// the following is equivalent to the above.
 			// Is it easier to understand?
@@ -102,6 +102,11 @@ public class CrapsGame
 		}
 
 		return false;
+	}
+
+	private boolean gameIsNotOver(int value)
+	{
+		return value != 7 && value != point;
 	}
 
 	private boolean lossForPlayer(int[] losses, int steps)
