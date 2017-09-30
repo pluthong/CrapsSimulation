@@ -86,12 +86,8 @@ public class CrapsSimulation
 		numberOfPlays = n;
 		numberOfWinsSoFar = 0;
 		for (int i = 0; i < numberOfPlays; i++)
-		{
-			if (game.playOneGame(winForNumberOfStepsOf, lossSteps))
-			{
-				numberOfWinsSoFar++;
-			}
-		}
+			if (game.playOneGame(winForNumberOfStepsOf, lossSteps))		
+				numberOfWinsSoFar++;	
 	}
 
 	/**

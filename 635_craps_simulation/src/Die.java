@@ -14,9 +14,8 @@ public class Die
 		setLastRoll(firstValue);
 	}
 
-	public int getLastRoll() // getter or accessor method
+	public  int getCrookedLastRoll() // getter or accessor method
 	{
-
 		return this.lastRoll;
 	}
 
@@ -35,7 +34,7 @@ public class Die
 	@Override
 	public String toString() // this OVERRIDES the default Object.toString()
 	{
-		return "A Die object with roll " + this.getLastRoll();
+		return "A Die object with roll " + this.getCrookedLastRoll();
 
 		// add the following to the end of the above line:
 		// + " " + super.toString()

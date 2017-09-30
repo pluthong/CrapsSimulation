@@ -34,11 +34,11 @@ public class CrapsGame
 		// If point is 7 or 11, announce an immediate win for player,
 		// increment wins[steps], and return true indicating win
 		
-		if (point == 7 || point == 11)
+		if (betWins())
 		{
 			return winForPlayer(wins, steps);
 		}
-		else if (point==2 || point == 3 || point==12)
+		else if (betLoses())
 		{
 			return lossForPlayer(losses, steps);
 		}
@@ -102,6 +102,16 @@ public class CrapsGame
 		}
 
 		return false;
+	}
+
+	private boolean betLoses()
+	{
+		return point==2 || point == 3 || point==12;
+	}
+
+	private boolean betWins()
+	{
+		return point == 7 || point == 11;
 	}
 
 	private boolean gameIsNotOver(int value)

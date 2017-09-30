@@ -50,7 +50,7 @@ public class Dice
 
 		die1.roll();
 		die2.roll();
-		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
+		this.lastRoll = die1.getCrookedLastRoll() + die2.getCrookedLastRoll();
 
 	}
 
@@ -60,9 +60,10 @@ public class Dice
 	// Roll of 7 => 4 + 3
 	//
 
+	@Override
 	public String toString()
 	{
-		return "Roll of " + getLastRoll() + ": " + die1.getLastRoll() + " + " + die2.getLastRoll();
+		return "Roll of " + getLastRoll() + ": " + die1.getCrookedLastRoll() + " + " + die2.getCrookedLastRoll();
 
 	}
 

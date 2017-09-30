@@ -7,8 +7,7 @@ public class CrookedDie1 extends Die
 		
 	}
 
-	public int getLastRoll() // this OVERRIDES Die's getLastRoll(), replacing
-								// it!
+	public int getCrookedLastRoll() // this OVERRIDES Die's getLastRoll(), replacing							// it!
 	{
 		return 3;
 	}
